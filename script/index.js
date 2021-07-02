@@ -1,10 +1,5 @@
-
 $(document).ready(function () {
-
 	const dbRef = db.collection('users');
-
-
-
 	let displayData = ''
 	dbRef.orderBy('nama').get().then((querySnapshot) => {
 		querySnapshot.docs.forEach((doc) => {
@@ -22,7 +17,6 @@ $(document).ready(function () {
 			}
 		});
 	})
-
 	let card = function renderCard(doc) {
 		let card =
 			`<div class="card mt-2" style="width: 18rem;">
@@ -36,24 +30,15 @@ $(document).ready(function () {
 		</div>
 		
 	</div>
-	
 	`
-
 		return card
-
 	}
 
 	$('#src-button').click(function (e) {
 		e.preventDefault();
-		
 		let searchkeyword = $('#searchbox').val().toLowerCase();
-
 		console.log(searchkeyword);
-
-		
-
 		dbRef.where('nama', '==', `${searchkeyword}`).get().then((snapshot => {
-			
 			let matchData = '';
 
 			if(snapshot.docs.length==0){
@@ -75,12 +60,9 @@ $(document).ready(function () {
 			})
 			$('.show-data').html(matchData);}
 			
-			// matchData = ''
 		}))
 			.catch(e => {
 				console.log(e.message);
 			})
-
 	});
-
 })
