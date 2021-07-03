@@ -1,8 +1,6 @@
 $(document).ready(function () {
 
 	const dbRef = db.collection('users');
-
-
 	auth.onAuthStateChanged(user => {
 		if (user) {
 			$('#avatars').html(`${user.email}`);
@@ -35,8 +33,6 @@ $(document).ready(function () {
 						$('.form-control').prop("disabled", false);
 					})
 				});
-
-
 			})
 		}
 		else {
@@ -81,123 +77,4 @@ $(document).ready(function () {
 		})
 	});
 
-	// const database = firebase.database()
-	// const beforeQuery = database.ref('guru/')
-
-	// let file = {};
-
-	// let imgURL;
-
-
-	// adding new data
-	/*$('#insert').click(function (e) {
-		e.preventDefault();
-
-
-
-		const pegID = $('#idbox').val(),
-			fullname = $('#fullnamebox').val().toLowerCase(),
-			subject = $('#subjectbox').val(),
-			phone = $('#phonebox').val(),
-			gelar1 = $('#gelar1box').val(),
-			gelar2 = $('#gelar2box').val(),
-			img = $('#fileinput').val().slice(12),
-			newId = beforeQuery.push()
-
-		// console.log(fullname);
-		// console.log(pegID)
-		// console.log(fullname)
-		// console.log(subject)
-		// console.log(phone)
-		// console.log(gelar1)'
-		// console.log(gelar2)
-		// console.log(img)
-
-		// function chooseFile(e) {
-		// 	file = e.target.files[0];
-		// }
-		$('#fileinput').change(function (e) {
-			e.preventDefault();
-			file = e.target.files
-		});
-
-		let metadata = {
-			contentType: 'image/png',
-		};
-
-		let uploadTask = firebase.storage().ref('images/' + img).put(file, metadata)
-
-		uploadTask.on('state_changed', (snapshot) => {
-			let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-			console.log('Upload is ' + progress + '% done');
-
-		}, (error) => {
-			// handling error
-		}, () => {
-			uploadTask.snapshot.ref.getDownloadURL().then(function (url) {
-				imgURL = url;
-				console.log(imgURL);
-
-
-				if (!pegID | !fullname | !subject | !phone) {
-
-					alert('Data yang diinput tidak sesuai')
-				}
-				else {
-					newId.set({
-						pegID: pegID,
-						fullname: fullname,
-						subject: subject,
-						phone: phone,
-						gelar1: gelar1,
-						gelar2: gelar2,
-						link: imgURL
-					},
-						error => {
-							if (!error) {
-								$('#namebox').val("")
-								$('#idbox').val("")
-								$('#fullnamebox').val("")
-								$('#subjectbox').val("")
-								$('#phonebox').val("")
-								$('#gelar1box').val("")
-								$('#gelar2box').val("")
-								$('#fileinput').val("")
-							}
-						})
-				}
-			})
-		}
-		)
-
-
-		// if (!pegID | !fullname | !subject | !phone) {
-
-		// 	alert('Data yang diinput tidak sesuai')
-		// }
-		// else {
-		// 	newId.set({
-		// 		pegID: pegID,
-		// 		fullname: fullname,
-		// 		subject: subject,
-		// 		phone: phone,
-		// 		gelar1: gelar1,
-		// 		gelar2: gelar2,
-		// 		link: imgURL
-		// 	},
-		// 		error => {
-		// 			if (!error) {
-		// 				$('#namebox').val("")
-		// 				$('#idbox').val("")
-		// 				$('#fullnamebox').val("")
-		// 				$('#subjectbox').val("")
-		// 				$('#phonebox').val("")
-		// 				$('#gelar1box').val("")
-		// 				$('#gelar2box').val("")
-		// 				$('#fileinput').val("")
-		// 			}
-		// 		})
-		// }
-
-	});*/
 });

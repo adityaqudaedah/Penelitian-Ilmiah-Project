@@ -15,7 +15,7 @@ $(document).ready(function () {
         window.location.assign('../pages/edit.html')
        })
        .catch(e=>{
-        $('#myFailModal').modal('show');
+            alert (e)
        })
    });
 });

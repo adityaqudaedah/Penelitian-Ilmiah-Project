@@ -84,20 +84,18 @@ $(document).ready(function () {
 										$('#input-subject').val(""),
 										$('#input-password').val(""),
 										$('#image-profile').val("");
-
+										
 								}).then(() => {
 									window.location.assign('../pages/edit.html');
 								});
 						}
 					);
-
 				})
 				.catch(e => {
 					// handling errors
 					$('#myFailModal').modal('show');
 				})
 		}
-
 	});
 
 	auth.onAuthStateChanged(user => {
@@ -117,8 +115,6 @@ $(document).ready(function () {
 			console.log(user);
 		})
 	});
-
-
 });
 
 
